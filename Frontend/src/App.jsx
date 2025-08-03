@@ -2,7 +2,9 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import {
   SignUp,
   Login,
+  Home,
   Dashboard,
+  Leaderboard
 } from './pages';
 
 function App() {
@@ -13,9 +15,28 @@ function App() {
         <Route 
           path='/'
           element={
-            <Navigate to='/login' />
+            <Home />
           }
-        />
+        >
+          <Route 
+            index
+            element={
+              <Navigate to='dashboard' />
+            }
+          />
+          <Route 
+            path='dashboard'
+            element={
+              <Dashboard />
+            }
+          />
+          <Route 
+            path='leaderboard'
+            element={
+              <Leaderboard />
+            }
+          />
+        </Route>
 
         {/* SignUp route */}
         <Route 
@@ -32,14 +53,7 @@ function App() {
             <Login />
           }
         />
-
-        {/* Dashboard route */}
-        <Route 
-          path='/dashboard'
-          element={
-            <Dashboard />
-          }
-        />
+          
 
         {/* Wildcard route for undefined paths. Shows a 404 error */}
         <Route 

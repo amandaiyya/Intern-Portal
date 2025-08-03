@@ -12,7 +12,7 @@ function Login() {
   const [password, setPassword] = useState("12345678")
 
   const handleClick = () => {
-    navigate('/dashboard')
+    navigate('/')
   }
 
   return (
