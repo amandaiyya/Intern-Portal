@@ -6,6 +6,7 @@ import {
   Dashboard,
   Leaderboard
 } from './pages';
+import { DivideIcon } from '@heroicons/react/24/solid';
 
 function App() {
   return (
@@ -59,7 +60,11 @@ function App() {
         <Route 
           path='*'
           element={
-            <p>404 Not found</p>
+            <>
+              <div className='w-screen h-screen bg-[#eef3f7] flex justify-center items-center'>
+                <div className='bg-white p-5 rounded-sm shadow-md md:text-xl text-red-500'>404 Not found ...</div>
+              </div>
+            </>
           }
         />
       </Routes>
