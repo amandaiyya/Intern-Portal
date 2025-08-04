@@ -27,7 +27,7 @@ function Navbar() {
         <Bars3Icon className='cursor-pointer fill-white'/>
       </div>
 
-      {openMenu && <div className='bg-white w-full h-full absolute top-0 left-0 z-[1] flex flex-col items-center p-4 space-y-10'>
+      {openMenu && <div className='bg-white w-screen h-screen absolute top-0 left-0 z-[1] flex flex-col items-center p-4 space-y-10 overflow-hidden'>
         <div className='w-full flex items-center justify-between'>
             <p className='text-gray-950 font-semibold underline underline-offset-5 decoration-red-500'>Intern Portal</p>
             <div
