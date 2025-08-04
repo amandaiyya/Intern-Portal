@@ -1,8 +1,9 @@
 const data = {
     "dashboard": {
-      "name": "Megha Intern",
-      "referralCode": "megha2025",
-      "donationsRaised": 2500
+      "internName": "Megha Sain",
+      "internLevel": "Level 2 intern",
+      "referralCode": "meghasain2025",
+      "donationRaised": 2500
     },
     "leaderboard": [
       { "name": "Megha", "donationsRaised": 2500 },
