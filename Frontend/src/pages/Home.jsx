@@ -22,8 +22,14 @@ function Home() {
 
   return (
     <div className='bg-[#eef3f7] w-screen h-screen flex flex-col md:flex-row'>
-      {isMobile ? <Navbar /> : <Sidebar />}
-      <Outlet />
+      {isMobile 
+        ? <Navbar /> 
+        : <Sidebar />}
+      
+      <div>
+        <div></div>
+        <Outlet />
+      </div>
     </div>
   )
 }

@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { Squares2X2Icon, ArrowLeftStartOnRectangleIcon, TrophyIcon } from '@heroicons/react/24/outline';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
 
   const [openMenu, setOpenMenu] = useState(false);
+
+  const handleClick = (path) => {
+    navigate(path)
+    setOpenMenu(false)
+  }
 
   return (
     <div className='bg-gray-950 w-full p-4 flex items-center justify-between'>
@@ -34,11 +42,10 @@ function Navbar() {
             <div className='flex flex-col items-start space-y-5'>
                 <div 
                   role='button'
-                  onClick={() => {
-                    navigate('/dashboard')
-                    setOpenMenu(false)
-                  }}
-                  className='w-full flex py-2 px-5 gap-5 hover:bg-gray-950 hover:text-white rounded-sm cursor-pointer'
+                  onClick={() => handleClick('/dashboard')}
+                  className={`w-full flex py-2 px-5 gap-5 rounded-sm cursor-pointer ${
+                    isActive('/dashboard') ? 'bg-gray-950 text-white' : 'hover:bg-gray-950 hover:text-white'
+                  }`}
                 >
                     <div className='w-8'>
                         <Squares2X2Icon />
@@ -47,11 +54,11 @@ function Navbar() {
                 </div>
                 <div
                   role='button'
-                  onClick={() => {
-                    navigate('/leaderboard')
-                    setOpenMenu(false)
-                  }}
-                  className='flex py-2 px-5 gap-5 hover:bg-gray-950 hover:text-white rounded-sm cursor-pointer'>
+                  onClick={() => handleClick('/leaderboard')}
+                  className={`w-full flex py-2 px-5 gap-5 rounded-sm cursor-pointer ${
+                    isActive('/leaderboard') ? 'bg-gray-950 text-white' : 'hover:bg-gray-950 hover:text-white'
+                  }`}
+                >  
                     <div className='w-8'>
                         <TrophyIcon />
                     </div>
@@ -63,10 +70,7 @@ function Navbar() {
             <div className='flex flex-col items-start'>
                 <div 
                   role='button'
-                  onClick={() => {
-                    navigate('/login')
-                    setOpenMenu(false)
-                  }}
+                  onClick={() => handleClick('/login')}
                   className='flex py-2 px-5 gap-3 hover:bg-red-500 hover:text-white rounded-sm cursor-pointer'
                 >
                     <div className='w-8'>
