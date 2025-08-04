@@ -26,8 +26,7 @@ function Home() {
         ? <Navbar /> 
         : <Sidebar />}
       
-      <div>
-        <div></div>
+      <div className='w-full h-full overflow-y-auto scroll-smooth will-change-transform transform-gpu'>
         <Outlet />
       </div>
     </div>

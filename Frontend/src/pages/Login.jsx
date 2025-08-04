@@ -51,6 +51,7 @@ function Login() {
         <p className='underline my-3 cursor-pointer self-end hover:no-underline text-red-500'>Forgot Password?</p>
         <Button
          onClick={handleClick}
+         className='my-5 bg-red-500 text-white hover:bg-white hover:text-red-500'
         >
           Log in
         </Button>

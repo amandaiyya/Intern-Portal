@@ -60,6 +60,7 @@ function SignUp() {
         />   
         <Button
          onClick={handleClick}
+         className='my-5 bg-red-500 text-white hover:bg-white hover:text-red-500'
         >
           Sign up
         </Button>

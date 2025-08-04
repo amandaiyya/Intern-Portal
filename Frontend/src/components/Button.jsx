@@ -8,7 +8,7 @@ function Button({
 }) {
   return (
     <button 
-      className={`outline-none font-semibold cursor-pointer p-3 bg-red-500 text-white my-5 hover:bg-white hover:text-red-500 ${className}`}
+      className={`${className} outline-none font-semibold cursor-pointer p-3 shadow-md`}
       onClick={onClick}
       {...props}
     >

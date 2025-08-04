@@ -27,7 +27,7 @@ function Navbar() {
         <Bars3Icon className='cursor-pointer fill-white'/>
       </div>
 
-      {openMenu && <div className='bg-white w-full h-full absolute top-0 left-0 flex flex-col items-center p-4 space-y-10'>
+      {openMenu && <div className='bg-white w-full h-full absolute top-0 left-0 z-[1] flex flex-col items-center p-4 space-y-10'>
         <div className='w-full flex items-center justify-between'>
             <p className='text-gray-950 font-semibold underline underline-offset-5 decoration-red-500'>Intern Portal</p>
             <div
@@ -43,7 +43,7 @@ function Navbar() {
                 <div 
                   role='button'
                   onClick={() => handleClick('/dashboard')}
-                  className={`w-full flex py-2 px-5 gap-5 rounded-sm cursor-pointer ${
+                  className={`w-full flex py-2 px-5 gap-5 rounded-sm cursor-pointer shadow-md ${
                     isActive('/dashboard') ? 'bg-gray-950 text-white' : 'hover:bg-gray-950 hover:text-white'
                   }`}
                 >
@@ -55,7 +55,7 @@ function Navbar() {
                 <div
                   role='button'
                   onClick={() => handleClick('/leaderboard')}
-                  className={`w-full flex py-2 px-5 gap-5 rounded-sm cursor-pointer ${
+                  className={`w-full flex py-2 px-5 gap-5 rounded-sm cursor-pointer shadow-md ${
                     isActive('/leaderboard') ? 'bg-gray-950 text-white' : 'hover:bg-gray-950 hover:text-white'
                   }`}
                 >  
@@ -71,7 +71,7 @@ function Navbar() {
                 <div 
                   role='button'
                   onClick={() => handleClick('/login')}
-                  className='flex py-2 px-5 gap-3 hover:bg-red-500 hover:text-white rounded-sm cursor-pointer'
+                  className='flex py-2 px-5 gap-3 hover:bg-red-500 hover:text-white rounded-sm cursor-pointer shadow-md'
                 >
                     <div className='w-8'>
                         <ArrowLeftStartOnRectangleIcon />
