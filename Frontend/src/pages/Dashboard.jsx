@@ -1,8 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { UserCircleIcon, CurrencyRupeeIcon } from '@heroicons/react/24/solid';
 import { Button } from '../components';
+import apiServices from '../api/api';
 
 function Dashboard() {
+  const [internName, setInternName] = useState('Intern');
+  const [referralCode, setReferralCode] = useState('intern2025');
+  const [internLevel, setInternLevel] = useState('Level 2 intern');
+  const [donationRaised, setDonationRaised] = useState(0);
+
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await apiServices.getDashboardData();
+
+      if(data) {
+        setInternName(data.internName);
+        setReferralCode(data.referralCode);
+        setInternLevel(data.internLevel);
+        setDonationRaised(data.donationRaised);
+      }
+    })()
+  },[])
 
   return (
     <>
@@ -13,13 +31,13 @@ function Dashboard() {
               <UserCircleIcon />
             </div>
             <div>
-              <p className='text-2xl font-semibold'>Aman Daiyya</p>
-              <p className='text-lg text-red-500 font-medium'>Level one intern</p>
+              <p className='text-2xl font-semibold'>{ internName }</p>
+              <p className='text-lg text-red-500 font-medium'>{ internLevel }</p>
             </div>
           </div>
           <div className='bg-white rounded-sm p-3 flex flex-col shadow-md'>
               <p className='text-lg mb-1'>Referral Code</p>
-              <p className='text-2xl font-semibold break-words'>amandaiyya2025</p>
+              <p className='text-2xl font-semibold break-words'>{ referralCode }</p>
               <Button
               className='mt-5 mb-2 bg-red-500 text-white hover:bg-gray-950 rounded-sm'
               >
@@ -31,7 +49,7 @@ function Dashboard() {
           <p className='font-bold text-xl md:text-2xl'>Total Donation Raised</p>
           <p className='flex items-center gap-3'>
             <CurrencyRupeeIcon className='w-8 md:w-10'/>
-            <span className='font-bold text-3xl md:text-4xl text-lime-400'>25000</span>
+            <span className='font-bold text-3xl md:text-4xl text-lime-400'>{ donationRaised }</span>
           </p>
         </div>
       </div>
@@ -62,7 +80,7 @@ function Dashboard() {
               <img src="/winner.svg" alt="icon" className='w-10 lg:w-13'/>
               <div className='space-y-1 w-full'>
                 <div className='flex items-center justify-between text-sm lg:text-lg font-medium'>
-                  <span>50000</span>
+                  <span>5000</span>
                   <span>50%</span>
                 </div>
                 <div className='bg-gray-300 h-2 rounded-xl'>
