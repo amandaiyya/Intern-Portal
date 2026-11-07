@@ -28,6 +28,7 @@ This is a basic full stack fundraising intern portal.
   - Total Donations Raised (from backend)
   - Rewards / Unlockables Section (static display only)
 - Styled using React and basic CSS (can be enhanced)
+- Deployed on vercel
 
 ### 🔙 Backend
 
@@ -37,6 +38,7 @@ This is a basic full stack fundraising intern portal.
   - Referral code
   - Total donations
 - Data is statically returned using JSON
+- Deployed on render
 
 ### 🏆 Bonus 
 
